@@ -32,14 +32,14 @@ export default function Bot() {
   return (
     <div className="mt-16 mr-10 ">
       {isChatbotVisible && (
-        <div className="chatBot bg-white shadow-lg rounded-lg max-w-md border-t-2">
+        <div className="chatBot bg-secondary shadow-lg rounded-lg max-w-md border-t-2">
           <div className="border-b-2 border-slate-300 px-2 py-4 flex items-center justify-between">
             <div className=" inline-flex item-center">
-              <SiBilibili className="w-8 h-8 text-black" />
-              <span className=" text-black pt-1 pl-4">Chatbot</span>
+              <SiBilibili className="w-8 h-8 text-black dark:text-white" />
+              <span className=" text-black dark:text-white pt-1 pl-4">Chatbot</span>
             </div>
           </div>
-          <div className="h-80 sm:h-60 flex flex-col space-y-4 max-w-md px-2 mb-2 mt-2">
+          <div className="h-80 w-96 overflow-hidden bg-secondary overflow-y-auto sm:h-60 flex flex-col space-y-4 max-w-md px-2">
             <div className="chat-history">
               {chatHistory.map((message, index) => (
                 <div
@@ -78,7 +78,7 @@ export default function Bot() {
                 type="text"
                 value={userInput}
                 onChange={handleUserInput} // Update user input on change
-                className="h-12 w-full rounded-full bg-slate-200"
+                className="h-12 w-full rounded-full bg-slate-200 text-black p-3"
               />
               <Button
                 type="submit"
