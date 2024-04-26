@@ -4,12 +4,26 @@ import React, { useState } from 'react';
 import { MdClose } from 'react-icons/md';
 import { RiSendPlane2Line } from 'react-icons/ri';
 import { SiBilibili, SiChatbot } from 'react-icons/si';
+import { getBotResponse } from './rule/rules';
 
 export default function Bot() {
   const [isChatbotVisible, setIsChatbotVisible] = useState(false);
+  const [userInput, setUserInput] = useState(""); // State to store user input
+  const [botResponse, setBotResponse] = useState(""); // State to store bot response
 
   const toggleChatbot = () => {
     setIsChatbotVisible(!isChatbotVisible);
+  };
+
+  const handleUserInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserInput(event.target.value); // Update user input state
+  };
+  
+  
+
+  const handleSendMessage = () => {
+    const newBotResponse = getBotResponse(userInput);
+    setBotResponse(newBotResponse); // Update bot response state
   };
 
   return (
@@ -22,20 +36,32 @@ export default function Bot() {
               <span className=' text-black pt-1 pl-4'>Chatbot</span>
             </div>
           </div>
-          <div className='bot h-80 sm:h-60 flex flex-col space-y-4 max-w-md px-2 mb-2 mt-2'>
+          <div className='h-80 sm:h-60 flex flex-col space-y-4 max-w-md px-2 mb-2 mt-2'>
+            <div className='flex flex-col items-end'>
+              <span className='user bg-gray-400 px-2 py-4 mt-2 mb-2 rounded-b-xl rounded-tl-xl text-white'>
+                {userInput}
+              </span>
+            </div>
+            {/* Display bot responses here */}
             <div className='flex flex-col items-start'>
-              <span className='bg-blue-500 px-2 py-4 rounded-b-xl rounded-tr-xl mb-2 mt-2 text-white'>Hi can I help you</span>
+              <span className='bot bg-blue-500 px-2 py-4 rounded-b-xl rounded-tr-xl mb-2 mt-2 text-white'>
+                {botResponse}
+              </span>
             </div>
-            <div className='user flex flex-col items-end'>
-              <span className='bg-gray-400 px-2 py-4 mt-2 mb-2 rounded-b-xl rounded-tl-xl text-white'>Good place for a coffee</span>
-            </div>
+            
           </div>
           <div className=''>
-            <div className="border-t-2 border-slate-300 flex justify-center p-4">
-              <input className="h-12 w-full rounded-full bg-slate-200"></input>
+            <div className="chat-input border-t-2 border-slate-300 flex justify-center p-4">
+              <input
+                type="text"
+                value={userInput}
+                onChange={handleUserInput} // Update user input on change
+                className="h-12 w-full rounded-full bg-slate-200"
+              />
               <Button
                 type="submit"
-                className='ml-5 h-14 w-14 rounded-full bg-blue-600  flex items-center justify-center focus:outline-none hover:bg-purple-700 transition duration-200 ease-in-out'
+                onClick={handleSendMessage}
+                className='ml-5 h-14 w-14 rounded-full bg-blue-600 flex items-center justify-center focus:outline-none hover:bg-purple-700 transition duration-200 ease-in-out'
               >
                 <RiSendPlane2Line className='w-7 h-7 text-white' />
               </Button>
@@ -48,10 +74,9 @@ export default function Bot() {
           className="chatbot-toggler h-16 w-16 rounded-full bg-purple-600 text-white flex items-center justify-center focus:outline-none hover:bg-purple-700 transition duration-200 ease-in-out"
           onClick={toggleChatbot}
         >
-            {isChatbotVisible ? <MdClose className='text-white w-5 h-5' /> : <SiChatbot className='text-white w-5 h-5' />}
+          {isChatbotVisible ? <MdClose className='text-white w-5 h-5' /> : <SiChatbot className='text-white w-5 h-5' />}
         </Button>
       </div>
     </div>
   );
 }
-
