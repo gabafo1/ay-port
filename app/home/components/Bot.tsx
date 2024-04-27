@@ -5,6 +5,7 @@ import { MdClose } from "react-icons/md";
 import { RiSendPlane2Line } from "react-icons/ri";
 import { SiBilibili, SiChatbot } from "react-icons/si";
 import { getBotResponse } from "./rule/rule";
+import './styles.css';
 
 export default function Bot() {
   const [isChatbotVisible, setIsChatbotVisible] = useState(false);
@@ -30,7 +31,7 @@ export default function Bot() {
   };
 
   return (
-    <div className="mt-16 mr-10 ">
+    <div className="msg mt-3 mr-5 sm:mr-10" >
       {isChatbotVisible && (
         <div className="chatBot bg-secondary shadow-lg rounded-lg max-w-md border-t-2">
           <div className="border-b-2 border-slate-300 px-2 py-4 flex items-center justify-between">
@@ -39,7 +40,7 @@ export default function Bot() {
               <span className=" text-black dark:text-white pt-1 pl-4">Chatbot</span>
             </div>
           </div>
-          <div className="h-[400px] w-96 overflow-hidden bg-secondary overflow-y-auto sm:h-60 flex flex-col space-y-4 max-w-md px-2">
+          <div className="h-[330px] w-72  overflow-hidden bg-secondary overflow-y-auto sm:h-64 md:h-56 flex flex-col space-y-4 max-w-md px-2">
             <div className="chat-history">
               {chatHistory.map((message, index) => (
                 <div
@@ -91,7 +92,7 @@ export default function Bot() {
           </div>
         </div>
       )}
-      <div className="fixed right-4 bottom-8 sm:bottom-11 md:bottom-[470px] lg:bottom-10">
+      <div className="fixed right-4 bottom-8 sm:bottom-11 md:bottom-[500px] lg:bottom-10">
         <Button
           aria-label={isChatbotVisible ? "Close Chatbot" : "Open Chatbot"}
           className="chatbot-toggler ease-in-300s h-16 w-16 rounded-full bg-purple-600 text-white flex items-center justify-center focus:outline-none hover:bg-purple-700 transition duration-200 ease-in-out"
