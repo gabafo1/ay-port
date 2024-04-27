@@ -5,10 +5,13 @@ import { HoverEffect } from "@/components/ui/card-hover-effect";
 import {
   SiAzureartifacts,
   SiDjango,
+  SiFlat,
   SiGit,
+  SiHtml5,
   SiJavascript,
   SiLinux,
   SiNextdotjs,
+  SiNodedotjs,
   SiPython,
   SiReact,
   SiTailwindcss,
@@ -16,6 +19,10 @@ import {
 
 export default function Skills() {
   const skills = [
+    {
+      text: "Html",
+      Icon: SiHtml5,
+    },
     {
       text: "React",
       Icon: SiReact,
@@ -33,8 +40,16 @@ export default function Skills() {
       Icon: SiJavascript,
     },
     {
+      text: "Nodejs",
+      Icon: SiNodedotjs,
+    },
+    {
       text: "Python",
       Icon: SiPython,
+    },
+    {
+      text: "Flask",
+      Icon: SiFlat,
     },
     {
       text: "Django",

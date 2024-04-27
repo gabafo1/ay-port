@@ -9,13 +9,17 @@ const rules = [
       response: "I'm just a bot, but thank you for asking!",
     },
     {
+      pattern: /what are you|what is your function|what is your purpose/i,
+      response: "I'm a bot, design by Ayodele to assist you with information!",
+    },
+    {
       pattern: /bye|goodbye/i,
       response: "Goodbye! Have a great day!",
     },
     {
-      pattern: /web dev portfolio|portfolio for web developer/i,
+      pattern: /what is a web dev portfolio|portfolio for web developer/i,
       response:
-        "Sure, I can help with that! A web dev portfolio is a website that showcases your skills and experience. Here are some key aspects to consider:",
+        "Sure, I can help with that! A web dev portfolio is a website that showcases your skills and experience.",
     },
     // Rule for specific portfolio aspects
     {

@@ -39,7 +39,7 @@ export default function Bot() {
               <span className=" text-black dark:text-white pt-1 pl-4">Chatbot</span>
             </div>
           </div>
-          <div className="h-80 w-96 overflow-hidden bg-secondary overflow-y-auto sm:h-60 flex flex-col space-y-4 max-w-md px-2">
+          <div className="h-[400px] w-96 overflow-hidden bg-secondary overflow-y-auto sm:h-60 flex flex-col space-y-4 max-w-md px-2">
             <div className="chat-history">
               {chatHistory.map((message, index) => (
                 <div
@@ -94,7 +94,7 @@ export default function Bot() {
       <div className="fixed right-4 bottom-8 sm:bottom-11 md:bottom-[470px] lg:bottom-10">
         <Button
           aria-label={isChatbotVisible ? "Close Chatbot" : "Open Chatbot"}
-          className="chatbot-toggler h-16 w-16 rounded-full bg-purple-600 text-white flex items-center justify-center focus:outline-none hover:bg-purple-700 transition duration-200 ease-in-out"
+          className="chatbot-toggler ease-in-300s h-16 w-16 rounded-full bg-purple-600 text-white flex items-center justify-center focus:outline-none hover:bg-purple-700 transition duration-200 ease-in-out"
           onClick={toggleChatbot}
         >
           {isChatbotVisible ? (
