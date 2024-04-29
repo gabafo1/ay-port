@@ -40,7 +40,7 @@ export default function Bot() {
               <span className=" text-black dark:text-white pt-1 pl-4">Chatbot</span>
             </div>
           </div>
-          <div className="board h-72 w-72  overflow-hidden bg-secondary overflow-y-auto sm:h-64 md:h-56 flex flex-col space-y-4 max-w-md px-2">
+          <div className=" h-64 w-72  overflow-hidden bg-secondary overflow-y-auto sm:h-64 md:h-56 lg:h-[230px] flex flex-col space-y-4 max-w-md px-2">
             <div className="chat-history">
               {chatHistory.map((message, index) => (
                 <div
